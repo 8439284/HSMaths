@@ -1,0 +1,11 @@
+{
+"rules": [
+{
+"primary-output": "CMakeFiles/HSMaths.dir/Statistics/Average.cpp.o",
+"requires": [
+]
+}
+],
+"version": 0,
+"revision": 0
+}

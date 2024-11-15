@@ -1,0 +1,3 @@
+D:/David/CPP_Code/WIP/HSMaths/cmake-build-debug/CMakeFiles/HSMaths.dir
+D:/David/CPP_Code/WIP/HSMaths/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/David/CPP_Code/WIP/HSMaths/cmake-build-debug/CMakeFiles/rebuild_cache.dir

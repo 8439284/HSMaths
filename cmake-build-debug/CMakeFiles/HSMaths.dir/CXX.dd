@@ -1,0 +1,19 @@
+ninja_dyndep_version = 1.0
+build CMakeFiles/HSMaths.dir/main.cpp.obj: dyndep
+
+build CMakeFiles/HSMaths.dir/MathsU/Variance.cpp.obj: dyndep
+
+build CMakeFiles/HSMaths.dir/MathsU/Statistics.cpp.obj: dyndep
+
+build CMakeFiles/HSMaths.dir/MathsU/Point3D.cpp.obj: dyndep
+
+build CMakeFiles/HSMaths.dir/MathsU/SolidGeo.cpp.obj: dyndep
+
+build CMakeFiles/HSMaths.dir/MathsU/QuadRad.cpp.obj: dyndep
+
+build CMakeFiles/HSMaths.dir/MathsU/Algebra.cpp.obj: dyndep
+
+build CMakeFiles/HSMaths.dir/MathsU/Fraction.cpp.obj: dyndep
+
+build CMakeFiles/HSMaths.dir/MathsU/AlgebraSquareRoot.cpp.obj: dyndep
+
