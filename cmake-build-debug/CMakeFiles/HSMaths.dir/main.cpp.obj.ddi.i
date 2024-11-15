@@ -79703,9 +79703,13 @@ public:
     QuadRad(int numerator) : numerator(numerator), denominator(1), root(1) {
         this->simplify();
     }
+    operator std::string() const {
+        return this->toString();
+    };
     operator double () const {
         return numerator * sqrt(root)/ denominator;
     }
+
     QuadRad setDenominator(int denominator) {
         this->denominator = denominator;
         return *this;
@@ -79756,7 +79760,7 @@ public:
     QuadRad rootReduction() {
         int _root = root;
         for (int i = 2; i <= _root; i++) {
-# 88 "D:/David/CPP_Code/WIP/HSMaths/MathsU/QuadRad.h"
+# 92 "D:/David/CPP_Code/WIP/HSMaths/MathsU/QuadRad.h"
             while (true) {
                 int iSquared = i*i;
                 if (_root % iSquared == 0) {
@@ -79790,7 +79794,7 @@ public:
         return fractionReduction();
     }
 
-    std::string toString() {
+    std::string toString() const {
         if (numerator == 0 or root == 0) {
             return "0";
         }
@@ -79977,26 +79981,27 @@ bool Vector3D<T, U, V>::equals(Vector3D vector3D) {
 
 
 
-class Point3D {
+template <class T, class U, class V> class Point3D {
 
-    double x;
-    double y;
-    double z;
+    T x;
+    U y;
+    V z;
 
 
 public:
-    Point3D(double x, double y, double z) {
-        this->x = x;
-        this->y = y;
-        this->z = z;
-    }
-    double getX() {
+    Point3D(T x, U y, V z) : x(x), y(y), z(z) {}
+
+
+
+
+
+    auto getX() {
         return x;
     }
-    double getY() {
+    auto getY() {
         return y;
     }
-    double getZ() {
+    auto getZ() {
         return z;
     }
     Point3D add(Point3D point3D) {
@@ -80011,10 +80016,10 @@ public:
 
 
 
-    Vector3D<double, double, double> toVector() {
+    Vector3D<T, U, V> toVector() {
         return Vector3D(x, y, z);
     }
-# 64 "D:/David/CPP_Code/WIP/HSMaths/MathsU/Point3D.cpp"
+# 65 "D:/David/CPP_Code/WIP/HSMaths/MathsU/Point3D.cpp"
 };
 # 9 "D:/David/CPP_Code/WIP/HSMaths/MathsU/SolidGeo.h" 2
 
@@ -80056,18 +80061,20 @@ public:
         auto returnVal = dot1 / len1_2;
         return returnVal;
     }
-# 40 "D:/David/CPP_Code/WIP/HSMaths/MathsU/SolidGeo.h"
-    static double dihedralAngleCos(Point3D v1, Point3D v2, Point3D v3, Point3D v4) {
+# 39 "D:/David/CPP_Code/WIP/HSMaths/MathsU/SolidGeo.h"
+    template<typename T1, typename T2, typename T3, typename T4, typename T5, typename T6, typename T7, typename T8, typename T9, typename T10, typename T11, typename T12>
+    static auto dihedralAngleCos(Point3D<T1, T2, T3> v1, Point3D<T4, T5, T6> v2, Point3D<T7, T8, T9> v3, Point3D<T10, T11, T12> v4) {
 
 
 
         return dihedralAngleCos(v1.sub(v2).toVector(), v3.sub(v2).toVector(), v4.sub(v2).toVector(), v3.sub(v2).toVector());
     }
 
-    static double lineAngleCos(Point3D p1, Point3D p2, Point3D p3) {
+    template<typename T1, typename T2, typename T3, typename T4, typename T5, typename T6, typename T7, typename T8, typename T9>
+    static auto lineAngleCos(Point3D<T1, T2, T3> p1, Point3D<T4, T5, T6> p2, Point3D<T7, T8, T9> p3) {
         return (p1.sub(p2).toVector().dot(p3.sub(p2).toVector())) / (p1.sub(p2).toVector().length() * p3.sub(p2).toVector().length());
     }
-# 58 "D:/David/CPP_Code/WIP/HSMaths/MathsU/SolidGeo.h"
+# 59 "D:/David/CPP_Code/WIP/HSMaths/MathsU/SolidGeo.h"
 };
 # 6 "D:/David/CPP_Code/WIP/HSMaths/main.cpp" 2
 # 1 "D:/David/CPP_Code/WIP/HSMaths/MathsU/Vector3D.h" 1
@@ -80085,42 +80092,33 @@ public:
 
 
 int main() {
+# 35 "D:/David/CPP_Code/WIP/HSMaths/main.cpp"
+    QuadRad point11(0, 3, 1);
+    QuadRad point12(0, 5, 1);
+    QuadRad point13(0, 3, 1);
+
+    QuadRad point21(0, 3, 1);
+    QuadRad point22(2, 1, 1);
+    QuadRad point23(2, 1, 1);
+
+    QuadRad point31(2, 3, 1);
+    QuadRad point32(0, 1, 1);
+    QuadRad point33(4, 3, 1);
+
+    QuadRad point41(0, 1, 1);
+    QuadRad point42(0, 1, 1);
+    QuadRad point43(2, 1, 1);
+
+    Point3D point1(point11, point12, point13);
+    Point3D point2(point21, point22, point23);
+    Point3D point3(point31, point32, point33);
+    Point3D point4(point41, point42, point43);
 
 
 
 
-
-
-
-    QuadRad vec11(-2, 3, 1);
-    QuadRad vec12(0, 5, 1);
-    QuadRad vec13(-4, 3, 1);
-
-    QuadRad vec21(-2, 3, 1);
-    QuadRad vec22(2, 1, 1);
-    QuadRad vec23(2, 3, 1);
-
-    QuadRad vec31(-2, 3, 1);
-    QuadRad vec32(0, 1, 1);
-    QuadRad vec33(2, 3, 1);
-    Vector3D vec1(vec11, vec12, vec13);
-    Vector3D vec2(vec21, vec22, vec23);
-    Vector3D vec3(vec31, vec32, vec33);
-
-
-
-
-
-
-
-    Vector3D vec5 (-1, 0, 0);
-    Vector3D vec6 (0, -1, 0);
-    Vector3D vec7 (0, 1, 0);
-
-
-
-    std::cout << SolidGeo::dihedralAngleCos(vec1, vec2, vec3, vec2).toString() << std::endl;
-# 112 "D:/David/CPP_Code/WIP/HSMaths/main.cpp"
+    std::cout << SolidGeo::dihedralAngleCos(point1, point2, point3, point4).toString() << std::endl;
+# 140 "D:/David/CPP_Code/WIP/HSMaths/main.cpp"
     return 0;
 
 }

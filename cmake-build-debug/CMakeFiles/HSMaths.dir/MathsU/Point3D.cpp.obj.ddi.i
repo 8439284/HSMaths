@@ -74728,9 +74728,13 @@ public:
     QuadRad(int numerator) : numerator(numerator), denominator(1), root(1) {
         this->simplify();
     }
+    operator std::string() const {
+        return this->toString();
+    };
     operator double () const {
         return numerator * sqrt(root)/ denominator;
     }
+
     QuadRad setDenominator(int denominator) {
         this->denominator = denominator;
         return *this;
@@ -74781,7 +74785,7 @@ public:
     QuadRad rootReduction() {
         int _root = root;
         for (int i = 2; i <= _root; i++) {
-# 88 "D:/David/CPP_Code/WIP/HSMaths/MathsU/QuadRad.h"
+# 92 "D:/David/CPP_Code/WIP/HSMaths/MathsU/QuadRad.h"
             while (true) {
                 int iSquared = i*i;
                 if (_root % iSquared == 0) {
@@ -74815,7 +74819,7 @@ public:
         return fractionReduction();
     }
 
-    std::string toString() {
+    std::string toString() const {
         if (numerator == 0 or root == 0) {
             return "0";
         }
@@ -74997,26 +75001,27 @@ bool Vector3D<T, U, V>::equals(Vector3D vector3D) {
 # 6 "D:/David/CPP_Code/WIP/HSMaths/MathsU/Point3D.cpp" 2
 
 
-class Point3D {
+template <class T, class U, class V> class Point3D {
 
-    double x;
-    double y;
-    double z;
+    T x;
+    U y;
+    V z;
 
 
 public:
-    Point3D(double x, double y, double z) {
-        this->x = x;
-        this->y = y;
-        this->z = z;
-    }
-    double getX() {
+    Point3D(T x, U y, V z) : x(x), y(y), z(z) {}
+
+
+
+
+
+    auto getX() {
         return x;
     }
-    double getY() {
+    auto getY() {
         return y;
     }
-    double getZ() {
+    auto getZ() {
         return z;
     }
     Point3D add(Point3D point3D) {
@@ -75031,8 +75036,8 @@ public:
 
 
 
-    Vector3D<double, double, double> toVector() {
+    Vector3D<T, U, V> toVector() {
         return Vector3D(x, y, z);
     }
-# 64 "D:/David/CPP_Code/WIP/HSMaths/MathsU/Point3D.cpp"
+# 65 "D:/David/CPP_Code/WIP/HSMaths/MathsU/Point3D.cpp"
 };

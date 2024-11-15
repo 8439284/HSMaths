@@ -36,15 +36,16 @@ public:
 //        int numerator = v1.cross(v2).dot(v3.cross(v4));
 //        return () / (v1.cross(v2).length() * v3.cross(v4).length());
 //    }
-
-    static double dihedralAngleCos(Point3D v1, Point3D v2, Point3D v3, Point3D v4) {
+    template<typename T1, typename T2, typename T3, typename T4, typename T5, typename T6, typename T7, typename T8, typename T9, typename T10, typename T11, typename T12>
+    static auto dihedralAngleCos(Point3D<T1, T2, T3> v1, Point3D<T4, T5, T6> v2, Point3D<T7, T8, T9> v3, Point3D<T10, T11, T12> v4) {
 //        dihedralAngleCos(v1, v2, v3, v4);
 //        return dihedralAngleCos(v1 - v2, v3 - v2, v4 - v3, v2 - v4);
 //        return dihedralAngleCos(v1.sub(v2).toVector(), v3.sub(v2).toVector(), v4.sub(v3).toVector(), v2.sub(v4).toVector());  //actually v4 sun v2
         return dihedralAngleCos(v1.sub(v2).toVector(), v3.sub(v2).toVector(), v4.sub(v2).toVector(), v3.sub(v2).toVector());
     }
 
-    static double lineAngleCos(Point3D p1, Point3D p2, Point3D p3) {
+    template<typename T1, typename T2, typename T3, typename T4, typename T5, typename T6, typename T7, typename T8, typename T9>
+    static auto lineAngleCos(Point3D<T1, T2, T3> p1, Point3D<T4, T5, T6> p2, Point3D<T7, T8, T9> p3) {
         return (p1.sub(p2).toVector().dot(p3.sub(p2).toVector())) / (p1.sub(p2).toVector().length() * p3.sub(p2).toVector().length());
     }
 

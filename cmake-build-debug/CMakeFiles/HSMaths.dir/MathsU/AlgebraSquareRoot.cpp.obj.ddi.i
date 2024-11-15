@@ -74653,9 +74653,13 @@ public:
     QuadRad(int numerator) : numerator(numerator), denominator(1), root(1) {
         this->simplify();
     }
+    operator std::string() const {
+        return this->toString();
+    };
     operator double () const {
         return numerator * sqrt(root)/ denominator;
     }
+
     QuadRad setDenominator(int denominator) {
         this->denominator = denominator;
         return *this;
@@ -74706,7 +74710,7 @@ public:
     QuadRad rootReduction() {
         int _root = root;
         for (int i = 2; i <= _root; i++) {
-# 88 "D:/David/CPP_Code/WIP/HSMaths/MathsU/QuadRad.h"
+# 92 "D:/David/CPP_Code/WIP/HSMaths/MathsU/QuadRad.h"
             while (true) {
                 int iSquared = i*i;
                 if (_root % iSquared == 0) {
@@ -74740,7 +74744,7 @@ public:
         return fractionReduction();
     }
 
-    std::string toString() {
+    std::string toString() const {
         if (numerator == 0 or root == 0) {
             return "0";
         }

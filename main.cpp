@@ -20,20 +20,48 @@ int main() {
 
 //    std::cout << a.getX().toString() << std::endl;
 
-    QuadRad vec11(-2, 3, 1);
-    QuadRad vec12(0, 5, 1);
-    QuadRad vec13(-4, 3, 1);
+//    QuadRad vec11(-2, 3, 1);
+//    QuadRad vec12(0, 5, 1);
+//    QuadRad vec13(-4, 3, 1);
+//
+//    QuadRad vec21(-2, 3, 1);
+//    QuadRad vec22(2, 1, 1);
+//    QuadRad vec23(2, 3, 1);
+//
+//    QuadRad vec31(-2, 3, 1);
+//    QuadRad vec32(0, 1, 1);
+//    QuadRad vec33(2, 3, 1);
 
-    QuadRad vec21(-2, 3, 1);
-    QuadRad vec22(2, 1, 1);
-    QuadRad vec23(2, 3, 1);
+    QuadRad point11(0, 3, 1);
+    QuadRad point12(0, 5, 1);
+    QuadRad point13(0, 3, 1);
 
-    QuadRad vec31(-2, 3, 1);
-    QuadRad vec32(0, 1, 1);
-    QuadRad vec33(2, 3, 1);
-    Vector3D vec1(vec11, vec12, vec13);
-    Vector3D vec2(vec21, vec22, vec23);
-    Vector3D vec3(vec31, vec32, vec33);
+    QuadRad point21(0, 3, 1);
+    QuadRad point22(2, 1, 1);
+    QuadRad point23(2, 1, 1);
+
+    QuadRad point31(2, 3, 1);
+    QuadRad point32(0, 1, 1);
+    QuadRad point33(4, 3, 1);
+
+    QuadRad point41(0, 1, 1);
+    QuadRad point42(0, 1, 1);
+    QuadRad point43(2, 1, 1);
+
+    Point3D point1(point11, point12, point13);
+    Point3D point2(point21, point22, point23);
+    Point3D point3(point31, point32, point33);
+    Point3D point4(point41, point42, point43);
+
+
+//    QuadRad test(0, 1,1);
+//    QuadRad test2(1, 2, 1);
+    std::cout << SolidGeo::dihedralAngleCos(point1, point2, point3, point4).toString() << std::endl;  //.
+
+
+//    Vector3D vec1(vec11, vec12, vec13);
+//    Vector3D vec2(vec21, vec22, vec23);
+//    Vector3D vec3(vec31, vec32, vec33);
 //    Vector3D vec3 = vec1 + vec2;
 //    QuadRad c = -a / b;
 //    std::cout << c.toString() << std::endl;
@@ -41,13 +69,13 @@ int main() {
 //    Vector3D vec2 = vec1.clone();
 //    Vector3D vec3 = vec1 + vec2;
 //    Vector3D vec4 = vec3.clone();
-    Vector3D vec5 (-1, 0, 0);
-    Vector3D vec6 (0, -1, 0);
-    Vector3D vec7 (0, 1, 0);
+//    Vector3D vec5 (-1, 0, 0);
+//    Vector3D vec6 (0, -1, 0);
+//    Vector3D vec7 (0, 1, 0);
 //    Vector3D vec8 (a, b, c);
 //
 //    SolidGeo::dihedralAngleCos(vec1, vec2, vec3, vec4);
-    std::cout << SolidGeo::dihedralAngleCos(vec1, vec2, vec3, vec2).toString() << std::endl;
+//    std::cout <<  5 + 0<< std::endl;  //SolidGeo::dihedralAngleCos(vec1, vec2, vec3, vec2).toString()
 
 //    std::cout << -4 % -3 << std::endl;
 

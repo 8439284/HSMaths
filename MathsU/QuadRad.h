@@ -23,9 +23,13 @@ public:
     QuadRad(int numerator) : numerator(numerator), denominator(1), root(1) {
         this->simplify();
     }
+    operator std::string() const {
+        return this->toString();
+    };
     operator double () const {
         return numerator * sqrt(root)/ denominator;
     }
+
     QuadRad setDenominator(int denominator) {
         this->denominator = denominator;
         return *this;
@@ -118,7 +122,7 @@ public:
         return fractionReduction();
     }
 
-    std::string toString() {
+    std::string toString() const {
         if (numerator == 0 or root == 0) {
             return "0";
         }

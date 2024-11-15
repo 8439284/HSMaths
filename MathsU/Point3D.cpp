@@ -5,26 +5,27 @@
 #include "Point3D.h"
 #include "Vector3D.h"
 
-class Point3D {
+template <class T, class U, class V> class Point3D {
 //    Vector3D* _vector3D;
-    double x;
-    double y;
-    double z;
+    T x;
+    U y;
+    V z;
 
 
 public:
-    Point3D(double x, double y, double z) {
-        this->x = x;
-        this->y = y;
-        this->z = z;
-    }
-    double getX() {
+    Point3D(T x, U y, V z) : x(x), y(y), z(z) {}
+//    {
+//        this->x = x;
+//        this->y = y;
+//        this->z = z;
+//    }
+    auto getX() {
         return x;
     }
-    double getY() {
+    auto getY() {
         return y;
     }
-    double getZ() {
+    auto getZ() {
         return z;
     }
     Point3D add(Point3D point3D) {
@@ -38,8 +39,8 @@ public:
 //    Point3D mul(double d) {
 //        return Point3D(x * d, y * d, z * d);
 //    }
-//
-    Vector3D<double, double, double> toVector() {
+//    template<typename T1, typename T2, typename T3>
+    Vector3D<T, U, V> toVector() {
         return Vector3D(x, y, z);
     }
 
